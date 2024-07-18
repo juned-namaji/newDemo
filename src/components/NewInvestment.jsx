@@ -1,29 +1,20 @@
-import React from 'react';
-import {
-    Modal,
-    Button,
-    Form,
-    Dropdown,
-    ModalHeader,
-    ModalContent,
-    ModalActions,
-    FormField
-} from 'semantic-ui-react';
-import Suggestions from './Suggestions';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Modal, Button, Form, Dropdown, ModalHeader, ModalContent, ModalActions, FormField } from 'semantic-ui-react';
+import { useNavigate } from 'react-router-dom';
 
 const InvestForm = (props) => {
-    const [open, setOpen] = React.useState(false);
-    const [riskLevel, setRiskLevel] = React.useState('Select Risk Level');
-    const [amount, setAmount] = React.useState(0);
+    const [open, setOpen] = useState(false);
+    const [riskLevel, setRiskLevel] = useState('Select Risk Level');
+    const [amount, setAmount] = useState(0);
+    const navigate = useNavigate();
 
     const handleDropdownChange = (e, { value }) => {
         setRiskLevel(value);
     };
 
     const handleSubmit = () => {
-
-    }
+        navigate("/suggestions", { state: { riskLevel, amount } });
+    };
 
     return (
         <Modal
@@ -33,7 +24,7 @@ const InvestForm = (props) => {
             trigger={<Button className="bg-blue-500 text-white py-2 px-4 rounded mb-11 font-serif">Apply for Investments</Button>}
             className="p-4"
         >
-            <ModalHeader className="text-xl font-bold mb-4">Fill the form so that we can suggest you the best securities to invest in:))</ModalHeader>
+            <ModalHeader className="text-xl font-bold mb-4">Fill the form so that we can suggest you the best securities to invest in:)</ModalHeader>
             <ModalContent>
                 <Form className="space-y-6">
                     <FormField>
