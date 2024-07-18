@@ -1,7 +1,7 @@
 import React from 'react';
 import InvestForm from './NewInvestment';
 import Header from './Header';
-import { Grid, Divider, Segment, Image } from 'semantic-ui-react';
+import { Grid, Divider, Segment, Image, Header as SemanticHeader, Icon } from 'semantic-ui-react'; // Import SemanticHeader and Icon
 
 function HomePage() {
     const investments = [
@@ -17,9 +17,17 @@ function HomePage() {
             <Segment>
                 <Grid columns={2} relaxed="very">
                     <Grid.Column width={6}>
-                        <div className="p-4">
-                            <h1>Rs.9383</h1>
-                            <label>Total </label>
+                        <div className="flex flex-col items-center justify-center p-7">
+                            <p style={{ height: '80px', lineHeight: '80px' }}>Name of Group..!</p>
+
+                            <SemanticHeader as='h2' icon textAlign='center' size='massive' style={{ marginTop: '125px', marginLeft: '120px' }}> {/* Use size prop for SemanticHeader */}
+                                <Icon name='users' circular size='massive' /> {/* Use size prop for Icon */}
+                                Current Value
+                            </SemanticHeader>
+                            <SemanticHeader as='h2' icon textAlign='center' size='massive' style={{ marginTop: '-145px', marginRight: '-40px', marginBottom: '10px' }}> {/* Use size prop for SemanticHeader */}
+                                <Icon name='users' circular size='massive' /> {/* Use size prop for Icon */}
+                                Total Invested
+                            </SemanticHeader>
                         </div>
                     </Grid.Column>
                     <Grid.Column width={10}>

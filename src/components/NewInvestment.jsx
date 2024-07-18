@@ -9,6 +9,8 @@ import {
     ModalActions,
     FormField
 } from 'semantic-ui-react';
+import Suggestions from './Suggestions';
+import { Link } from 'react-router-dom';
 
 const InvestForm = (props) => {
     const [open, setOpen] = React.useState(false);
@@ -18,6 +20,10 @@ const InvestForm = (props) => {
     const handleDropdownChange = (e, { value }) => {
         setRiskLevel(value);
     };
+
+    const handleSubmit = () => {
+
+    }
 
     return (
         <Modal
@@ -60,7 +66,7 @@ const InvestForm = (props) => {
                     labelPosition='right'
                     icon='checkmark'
                     type="submit"
-                    onClick={() => setOpen(false)}
+                    onClick={handleSubmit}
                     positive
                     className="bg-green-500 text-white py-2 px-4 rounded"
                 />
@@ -68,5 +74,4 @@ const InvestForm = (props) => {
         </Modal>
     );
 };
-
 export default InvestForm;
